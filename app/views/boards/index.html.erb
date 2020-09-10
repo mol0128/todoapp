@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All Boards</h1>
+  <% @boards.each do |board| %>
+    <%= link_to board_path(board) do %>
+      <div class="board">
+        <div class="board_content">
+           <div class="board_title">
+             <%= board.title %>
+           </div>
+           <div class="board_detail">
+             <%= board.content %>
+           </div>
+         </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to new_board_path do %>
+    <div class="board">
+      + add new board
+    </div>
+  <% end %>
+</div>
