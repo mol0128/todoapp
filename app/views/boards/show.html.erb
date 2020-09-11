@@ -1,6 +1,16 @@
 <div class=board>
   <h1><%= @board.title %></h1>
   <p><%= @board.content %></p>
-
-
+    <% if user_signed_in? && current_user.has_written?(@board) %>
+      <div class="dropdown">
+        <%= image_tag 'oval3.svg' %>
+        <div class="dropdown-content">
+          <%= link_to '編集する', edit_board_path(@board) %>
+          <%= link_to '削除する', board_path(@board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか' } %>
+        </div>
+      </div>
+    <% end %>
+  <% if @board.user.present? %>
+    <p><%= @board.user.display_name %></p>
+  <% end %>
 </div>
