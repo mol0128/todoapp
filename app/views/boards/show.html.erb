@@ -10,6 +10,7 @@
         </div>
       </div>
     <% end %>
-
-
+  <% if @board.user.present? %>
+    <p><%= @board.user.display_name %></p>
+  <% end %>
 </div>
