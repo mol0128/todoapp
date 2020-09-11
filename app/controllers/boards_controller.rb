@@ -14,9 +14,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to board_path(@board), notice: '更新'
+      redirect_to board_path(@board), notice: 'boardを作成しました'
     else
-      flash.now[:error] = 'failed'
+      flash.now[:error] = '作成できませんでした'
       render :new
     end
   end
