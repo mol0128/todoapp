@@ -1,6 +1,12 @@
 <div class=board>
   <h1><%= @board.title %></h1>
   <p><%= @board.content %></p>
+  <div class="dropdown">
+    <%= image_tag 'oval3.svg' %>
+    <div class="dropdown-content">
+      <%= link_to '編集する', edit_board_path(@board) %>
+    </div>
+  </div>
 
 
 </div>
