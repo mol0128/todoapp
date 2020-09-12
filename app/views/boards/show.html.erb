@@ -19,6 +19,9 @@
   </div>
   <div>
     <% @tasks.each do |task| %>
+      <% if task.eyecatch.attached? %>
+        <%= image_tag task.eyecatch %>
+      <% end %>
       <p><%= task.title %></p>
       <p><%= task.content %></p>
       <p><%= task.user.display_name %></p>
