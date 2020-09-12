@@ -17,4 +17,20 @@
       <p><%= @board.user.display_name %></p>
     <% end %>
   </div>
+  <div>
+    <% @tasks.each do |task| %>
+      <p><%= task.title %></p>
+      <p><%= task.content %></p>
+      <p><%= task.user.display_name %></p>
+    <% end %>
+  
+  </div>
+  <% if user_signed_in? && current_user %>
+    <div>
+      <%= link_to new_board_task_path(@board) do %>
+        <div class="board_new">
+        <p>+ add new task</p>
+      <% end %>
+    </div>
+  <% end %>
 </div>

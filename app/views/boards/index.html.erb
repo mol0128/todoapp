@@ -10,16 +10,16 @@
            <div class="board_detail">
              <%= board.content %>
            </div>
-          <% end %>
-           <div class="dropdown">
-            <%= image_tag 'oval3.svg', class: 'dropdown' %>
            </div>
          </div>
       </div>
+    <% end %>
   <% end %>
-  <%= link_to new_board_path do %>
-    <div class="board_new">
-      <p>+ add new board</p>
-    </div>
+  <% if user_signed_in? && current_user %>
+    <%= link_to new_board_path do %>
+      <div class="board_new">
+        <p>+ add new board</p>
+      </div>
+    <% end %>
   <% end %>
 </div>
