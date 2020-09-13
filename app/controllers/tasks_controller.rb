@@ -36,6 +36,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:id])
+    task.destroy!
+    redirect_to root_path
+  end
+
   private
   def task_params
     params.require(:task).permit(:title, :content, :eyecatch, :deadline).merge(user_id: current_user.id)
