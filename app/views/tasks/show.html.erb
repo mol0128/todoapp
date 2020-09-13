@@ -7,8 +7,9 @@
   <p><%= @task.deadline %></p>
   <p><%= @task.user.display_name %></p>
 
-  <li><%= link_to '編集する', edit_board_task_path(@task.board) %></li>
-  <li><%= link_to '削除する', board_task_path(@task.board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか' } %></li>
-
+  <% if user_signed_in? && current_user.has_written_task?(@task) %>
+    <li><%= link_to '編集する', edit_board_task_path(@task.board) %></li>
+    <li><%= link_to '削除する', board_task_path(@task.board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか' } %></li>
+  <% end %>
 
 </div>
