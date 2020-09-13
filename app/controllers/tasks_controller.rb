@@ -21,6 +21,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to board_task_path(@task.board), notice: '更新しました'
+    else
+      render :edit
+    end
+  end
+
   private
   def task_params
     params.require(:task).permit(:title, :content, :eyecatch, :deadline).merge(user_id: current_user.id)
