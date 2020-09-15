@@ -1,19 +1,28 @@
 <div class="container">
-  <h2>All Boards</h2>
+  <h2 class="page-title">All Boards</h2>
   <% @boards.each do |board| %>
-    <%= link_to board_path(board) do %>
-      <div class="board">
-        <div class="board_content">
-           <div class="board_title">
-             <%= board.title %>
-           </div>
-           <div class="board_detail">
-             <%= board.content %>
-           </div>
-           </div>
-         </div>
+    <div class="board">
+      <div class="board_content">
+        <div class="dropdown-mini">
+          <%= image_tag 'oval3.svg', class: 'dropdown-btn' %>
+            <ul class="dropdown-content-mini">
+              <li><a href="#">編集する</a></li>
+              <li><a href="#">削除する</a></li>
+            </ul>
+        </div>
+        <%= link_to board_path(board) do %>
+          <div class="board_title">
+            <%= board.title %>
+          </div>
+          <div class="board_detail">
+            <%= board.content %>
+          </div>
+        <% end %>
+        <div class="board_user">
+          <%= board.user.display_name %>
+        </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
   <% if user_signed_in? && current_user %>
     <%= link_to new_board_path do %>

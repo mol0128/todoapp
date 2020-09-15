@@ -1,20 +1,40 @@
+.page-title {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
 .board {
-  height: 161px;
   background: #F4F4F4;
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin: 30px 0;
+  padding: 35px 0;
+}
+
+.board_title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.board_detail {
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .board_content {
-  padding-top: 50px;
-  padding-left: 10px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.board_user {
+  margin-top: 15px;
+  font-size: 12px;
 }
 
 .board_new {
   height: 161px;
   background: #fff;
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin: 30px 0;
   border: dashed 2px #F4F4F4;
 
   p {
@@ -23,11 +43,14 @@
     top: 40%;
   }
 }
+.deadline {
+  margin-top: 15px;
+}
 
 .dropdown-mini {
   float: right;
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .dropdown-content-mini {
@@ -39,6 +62,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin-right: 10px;
 }
 
 .dropdown-content-mini a:hover {
@@ -49,3 +73,7 @@
   display: block;
 }
 
+.comment {
+  font-size: 12px;
+  margin: 10px 0;
+}

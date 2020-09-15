@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="page-title">Comment</h2>
   <ul>
     <% @comment.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -7,13 +8,13 @@
 
   <%= form_with(model: @comment, url: board_task_comments_path(@comment.task), local: true) do |f| %>
     <div>
-      <%= f.label :content, '内容' %>
+      <%= f.label :content, 'content' %>
     </div>
     <div>
       <%= f.text_area :content %>
     </div>
     <div>
-      <%= f.submit 'コメントする' %>
+      <%= f.submit 'submit', class: 'btn-submit' %>
     </div>
   <% end %>
 </div>
