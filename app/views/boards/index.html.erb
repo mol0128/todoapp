@@ -3,13 +3,6 @@
   <% @boards.each do |board| %>
     <div class="board">
       <div class="board_content">
-        <div class="dropdown-mini">
-          <%= image_tag 'oval3.svg', class: 'dropdown-btn' %>
-            <ul class="dropdown-content-mini">
-              <li><a href="#">編集する</a></li>
-              <li><a href="#">削除する</a></li>
-            </ul>
-        </div>
         <%= link_to board_path(board) do %>
           <div class="board_title">
             <%= board.title %>
