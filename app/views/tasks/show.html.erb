@@ -10,10 +10,10 @@
         </div> 
     </div>
   <% end %>
-  <% if @task.eyecatch.attached? %>
-    <%= image_tag @task.eyecatch %>
-  <% end %>
   <h2 class="page-title"><%= @task.title %></h2>
+  <% if @task.eyecatch.attached? %>
+    <%= image_tag @task.eyecatch, class: 'task_image' %>
+  <% end %>
   <div class="board">
     <div class="board_content">
       <p class="board_detail"><%= @task.content %></p>
