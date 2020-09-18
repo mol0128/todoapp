@@ -10,7 +10,11 @@
         </div> 
     </div>
   <% end %>
-  <h2 class="page-title"><%= @task.title %></h2>
+
+  <%= link_to board_path(@board.id) do %>
+   <h2 class="page-title"><%= @task.title %></h2>
+  <% end %>
+  
   <% if @task.eyecatch.attached? %>
     <%= image_tag @task.eyecatch, class: 'task_image' %>
   <% end %>
@@ -19,7 +23,6 @@
       <p class="board_detail"><%= @task.content %></p>
       <p class="deadline">期限 : <%= @task.deadline %></p>
       <p class="board_user"><%= @task.user.display_name %></p>
-
     </div>
   </div>
 
@@ -34,11 +37,11 @@
   </div>
 
   <% if user_signed_in? && current_user %>
-    <div>
-      <%= link_to new_board_task_comment_path(board_id: @board.id, task_id: @task.id) do %>
+    <%= link_to new_board_task_comment_path(board_id: @board.id, task_id: @task.id) do %>
+      <div>
         <div class="board_new">
         <p>+ add new comment</p>
-    </div>
+      </div>
     <% end %>
   <% end %>
 </div>
