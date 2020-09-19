@@ -26,8 +26,13 @@
 }
 
 .board_user {
-  margin-top: 15px;
+  margin-left: 10px;
   font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
 }
 
 .board_new {
@@ -79,7 +84,7 @@
 
 .comment {
   font-size: 12px;
-  margin: 15px 0;
+  margin-top: 20px;
 }
 
 .task_image {
@@ -87,4 +92,46 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.boardPage {
+  &_user {
+    display: flex;
+
+    &_image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        margin-top: 24px;
+      }
+    }
+  }
+}
+
+.user-info {
+  display: flex;
+}
+
+.commentPage {
+
+  &_user {
+    display: flex;
+
+    &_image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+      }
+    }
+  }
 }

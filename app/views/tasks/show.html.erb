@@ -22,7 +22,12 @@
     <div class="board_content">
       <p class="board_detail"><%= @task.content %></p>
       <p class="deadline">期限 : <%= @task.deadline %></p>
-      <p class="board_user"><%= @task.user.display_name %></p>
+      <div class="user-info">
+        <div class="boardPage_user_image">
+          <%= image_tag @task.user.avatar_image %>
+        </div>
+        <p class="board_user"><%= @task.user.display_name %></p>
+      </div>
     </div>
   </div>
 
@@ -32,7 +37,12 @@
   <div class="comment_detail">
     <% @comments.each do |comment| %>
       <p class="comment"><%= comment.content %></p>
-      <p class="board_user"><%= comment.user.display_name %></p>
+      <div class="user-info">
+        <div class="commentPage_user_image">
+            <%= image_tag comment.user.avatar_image %>
+        </div>
+        <p class="board_user"><%= comment.user.display_name %></p>
+      </div>
     <% end %>
   </div>
 
