@@ -6,14 +6,14 @@
     <div class="profilePage_user_basicInfo">
       <div class="profilePage_user_name">
         <div class="profilePage_user_displayName">
-          <%= current_user.display_name %>
+          <%= current_user.display_name %> (<%= current_user.gender %>)
         </div>
         <div class="profilePage_user_actionButton">
           <%= link_to 'Edit', edit_profile_path %>
         </div>
       </div>
       <div class="profilePage_user_belongs">
-        総務部
+        <%= current_user.profile&.belongs %>
       </div>
     </div>
   </div>

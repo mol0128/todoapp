@@ -22,7 +22,9 @@
               <li><%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' } %></li>
             </ul>
           <% else %>
-          <%= link_to 'ログイン', new_user_session_path, class: 'dropdown-content' %>
+            <ul class="dropdown-content">
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            </ul>
           <% end %>
       </div>
     </header>
