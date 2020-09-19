@@ -15,7 +15,7 @@
     <header class="header">
       <%= link_to 'Boards', root_path, class: 'header_pageTitle' %>
       <div class="dropdown">
-        <%= image_tag 'default-avatar.png', class: 'header_avatar' %>
+        <%= image_tag current_user.avatar_image, class: 'header_avatar' %>
           <% if user_signed_in? %>
             <ul class="dropdown-content">
               <li><%= link_to 'プロフィール', profile_path %></li>
