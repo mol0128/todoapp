@@ -22,6 +22,17 @@
     <div class="board_content">
       <p class="board_detail"><%= @task.content %></p>
       <p class="deadline">期限 : <%= @task.deadline %></p>
+      <% if user_signed_in? %>
+        <% if current_user.has_checked?(@task) %>
+          <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'delete' } do %>
+            <span class="checked"><i class="fa fa-check" aria-hidden="true"></i> 確認済み</span>
+          <% end %>
+        <% else %>
+          <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'post' } do %>
+            <span class="checked"><i class="fa fa-square-o" aria-hidden="true"></i> 未確認</span>
+          <% end %>
+        <% end %>
+      <% end %>
       <div class="user-info">
         <div class="boardPage_user_image">
           <%= image_tag @task.user.avatar_image %>
