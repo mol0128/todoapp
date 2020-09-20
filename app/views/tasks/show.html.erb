@@ -22,8 +22,14 @@
     <div class="board_content">
       <p class="board_detail"><%= @task.content %></p>
       <p class="deadline">期限 : <%= @task.deadline %></p>
-      <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'post' } do %>
-        <div>確認済み</div>
+      <% if user_signed_in? %>
+        <% if current_user.has_checked?(@task) %>
+          <div>■確認済み</div>
+        <% else %>
+          <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'post' } do %>
+            <div>□未確認</div>
+          <% end %>
+        <% end %>
       <% end %>
       <div class="user-info">
         <div class="boardPage_user_image">
