@@ -24,7 +24,9 @@
       <p class="deadline">期限 : <%= @task.deadline %></p>
       <% if user_signed_in? %>
         <% if current_user.has_checked?(@task) %>
-          <div>■確認済み</div>
+          <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'delete' } do %>
+            <div>■確認済み</div>
+          <% end %>
         <% else %>
           <%= link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'post' } do %>
             <div>□未確認</div>
