@@ -37,6 +37,7 @@
           <p class="board_detail"><%= task.content %></p>
         <% end %>
           <p class="board_detail">期限 : <%= task.deadline %></p>
+          <p><i class="fa fa-user-circle" aria-hidden="true"></i> チェック済み : <%= task.check_count %></p>
           <div class="user-info">
             <div class="boardPage_user_image">
               <%= image_tag task.user.avatar_image %>

@@ -14,4 +14,8 @@ class Task < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :checks, dependent: :destroy
+
+  def check_count
+    checks.count
+  end
 end
