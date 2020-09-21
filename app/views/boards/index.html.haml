@@ -1,0 +1,19 @@
+.container
+  %h2.page-title All Boards
+  - @boards.each do |board|
+    .board
+      .board_content
+        = link_to board_path(board) do
+          .board_title
+            = board.title
+          .board_detail
+            = board.content
+        .user-info
+          .boardPage_user_image
+            = image_tag board.user.avatar_image
+          .board_user
+            = board.user.display_name
+  - if user_signed_in? && current_user
+    = link_to new_board_path do
+      .board_new
+        %p + add new board
