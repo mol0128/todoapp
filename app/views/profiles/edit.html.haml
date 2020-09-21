@@ -1,0 +1,26 @@
+.container
+  %h2.page-title Edit Profile
+  %ul
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    %div
+      = f.label :avatar, 'アバター'
+    %div
+      = f.file_field :avatar
+    %div
+      = f.label :name, 'name'
+    %div
+      = f.text_field :name, class: 'text'
+    %div
+      = f.label :belongs, 'belongs'
+    %div
+      = f.text_field :belongs, class: 'text'
+    %div
+      = f.label :gender, 'gender'
+    %div
+      = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: 'text' }
+    %div
+      = f.label :subscribed, '通知を受け取る'
+      = f.check_box :subscribed
+    = f.submit :submit, class: 'btn-submit'
