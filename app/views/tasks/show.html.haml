@@ -20,12 +20,14 @@
           = link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'delete' } do
             %span.checked
               %i.fa.fa-check{"aria-hidden" => "true"}
-              確認済み
+                .checked_after
+                  確認済み
         - else
           = link_to board_task_check_path(board_id: @board.id, task_id: @task.id), data: { method: 'post' } do
             %span.checked
               %i.fa.fa-hand-o-up{"aria-hidden" => "true"}
-              未確認
+                .checked_before
+                  未確認
       .user-info
         .boardPage_user_image
           = image_tag @task.user.avatar_image

@@ -135,3 +135,15 @@
     }
   }
 }
+
+.checked {
+  &_before {
+    color: red;
+    display: inline-block;
+  }
+
+  &_after {
+    color: blue;
+    display: inline-block;
+  }
+}
